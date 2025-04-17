@@ -4,7 +4,7 @@
 Build a fully serverless data lake on Google Cloud Platform to ingest, store, process, and query real-time IoT sensor data using Cloud Functions, Cloud Storage, Dataflow, and BigQuery.
 
 ## 🚀 Architecture
-![Architecture Diagram](architecture/architecture-diagram.png)
+![Architecture Diagram](architecture/architecture_diagram.jpeg)
 
 ## 🔧 Project Components
 - **Cloud Function**: Publish CSV row from storage to pub/sub
