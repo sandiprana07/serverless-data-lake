@@ -18,9 +18,10 @@ Build a fully serverless data lake on Google Cloud Platform to ingest, store, pr
 
 ## 🏁 Getting Started
 ```bash
-bash scripts/setup-gcs.sh
-gcloud functions deploy ...
-python3 dataflow-job/dataflow_job.py ...
+bash scripts/setup.sh
+cloud-functio/deploy.sh
+
+dataflow-job/data-flow-deploy.sh
 
 
 # To test the pipeline, command to copy file from local system to google cloud storage
@@ -31,3 +32,14 @@ gcloud pubsub subscriptions create traffic-data-sub --topic=traffic-data-topic
 
 #printing topic message in terminal
 gcloud pubsub subscriptions pull traffic-data-sub --limit=5 --auto-ack
+
+gcloud pubsub topics delete traffic-data-topic
+
+gcloud functions delete publish_traffic_data --gen2 --region=asia-south1
+
+# optional clean up
+If you want to clean up associated artifacts:
+
+* Artifact repo zip	Check GCS bucket: gcf-v2-sources-* and delete manually
+* Cloud Logs	Managed by Logging, no need to delete
+* Pub/Sub triggers	Manually delete with gcloud pubsub topics/subscriptions delete
